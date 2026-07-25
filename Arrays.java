@@ -110,3 +110,63 @@ public class code{
         System.out.println("\n"+max+" is the maximum element");
     }
 }
+
+/*
+------------------------------------------
+Problem: Second & Third Largest Element
+Pattern: Traversal + Comparison
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+Concept:
+Maintain the top 3 largest distinct elements
+while traversing the array only once.
+
+Interview Level: Easy
+------------------------------------------
+*/
+import java.util.Scanner;
+public class code{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter length of array");
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+
+        int largest=Integer.MIN_VALUE;
+        
+        int secondLargest=Integer.MIN_VALUE;
+        int thirdlargest=Integer.MIN_VALUE;
+
+        System.out.println("Enter elemnets of array");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i]=sc.nextInt();
+        }
+        secondLargestfind(arr,largest,secondLargest,thirdlargest);     
+    }
+    static void secondLargestfind(int[]arr,int largest ,int secondLargest,int thirdlargest){
+        for(int current=0;current<arr.length;current++){
+            if(arr[current]>largest){
+                thirdlargest=secondLargest;
+                secondLargest=largest;
+                largest=arr[current];
+                
+            }
+        else if(arr[current]>secondLargest && largest!=arr[current])
+        {
+            thirdlargest=secondLargest;
+            secondLargest=arr[current];
+        }
+        else if(arr[current]>thirdlargest&&secondLargest!=arr[current]&&largest!=arr[current]){
+            thirdlargest=arr[current];
+        }
+
+        }
+        if(secondLargest==Integer.MIN_VALUE){
+            System.out.println("No distinct second/third largest value");
+        }else
+        System.out.println("second largest is "+secondLargest);
+        System.out.println("third largest is "+thirdlargest);
+    }
+}
+
