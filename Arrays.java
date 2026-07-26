@@ -170,3 +170,47 @@ public class code{
     }
 }
 
+// Pattern: Traversal + Insert Index (In-place Modification) remove duplicates
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 1, 2, 2, 3, 4, 4};
+        int insertindex=0;
+
+        for(int i=1;i<arr.length;i++){
+            if(arr[i]!=arr[i-1]){
+                insertindex++;
+                arr[insertindex]=arr[i];
+                
+            }
+        }
+        for (int i=0; i < insertindex+1; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+}
+
+// Pattern: Traversal + Insert Index (In-place Modification) move zeroes to end
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 0, 0, 2, 3, 4, 4};
+        int insertindex=0;
+
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]!=0){
+                arr[insertindex]=arr[i];
+                insertindex++;
+            }
+        }
+        for (int i=insertindex; i < arr.length; i++) {
+            arr[i]=0;
+        }
+         for(int i=0;i<arr.length;i++)
+             System.out.println(arr[i]);
+        
+    }
+}
