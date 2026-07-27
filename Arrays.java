@@ -350,3 +350,72 @@ public class Main {
 
     }
 }
+// Pattern: Two Pointers
+// Intersection of Two Sorted Arrays
+// Time Complexity: O(n + m)
+// Space Complexity: O(1)
+public class Main {
+    public static void main(String[] args) {
+    int[] arr1={0, 1, 5 ,6};
+    int[] arr2={2,5,8};
+    
+    int i=0,j=0;
+
+    while(i<arr1.length&&j<arr2.length){
+        if(arr1[i]<arr2[j]){
+           i++;
+        }
+        else if(arr1[i]>arr2[j]) {
+            j++;
+        }
+        else{
+            System.out.println(arr1[i]);
+            i++;j++;
+        }
+    }
+
+
+    }
+}
+// Pattern: Two Pointers
+// Union of Two Sorted Arrays
+// Time Complexity: O(n + m)
+// Space Complexity: O(1)
+public class Main {
+    public static void main(String[] args) {
+    int[] arr1={0, 1, 5 ,6};
+    int[] arr2={2,5,8};
+    int[] union=new int[arr1.length+arr2.length];
+    
+    int i=0,j=0,k=0;
+
+    while(i<arr1.length&&j<arr2.length){
+        if(arr1[i]<arr2[j]){
+            union[k]=arr1[i];
+            k++;
+            i++;
+        }
+        else if(arr1[i]>arr2[j]){
+            union[k]=arr2[j];
+            k++;
+            j++;
+        }
+        else{
+            union[k]=arr1[i];
+            i++;j++;k++;
+        }
+    }
+    while(i<arr1.length){
+        union[k]=arr1[i];
+        k++;i++;
+    }
+    while(j<arr2.length){
+        union[k]=arr2[j];
+        k++;j++;
+    }
+    for (int x = 0; x < k; x++) {
+        System.out.print(union[x]+" ");
+    }
+
+    }
+}
