@@ -313,3 +313,40 @@ public class Main {
     System.out.println(maxprofit);
     }
 }
+// Pattern: Two Pointers
+// Merge Two Sorted Arrays
+// Time Complexity: O(n + m)
+// Space Complexity: O(n + m)
+public class Main {
+    public static void main(String[] args) {
+    int[] arr1={0, 1, 5 ,6};
+    int[] arr2={2,4,8};
+    int[] merged=new int[arr1.length+arr2.length];
+    int i=0,j=0,k=0;
+
+    while(i<arr1.length&&j<arr2.length){
+        if(arr1[i]<arr2[j]){
+            merged[k]=arr1[i];
+            k++;
+            i++;
+        }
+        else   {
+            merged[k]=arr2[j];
+            k++;
+            j++;
+        }
+    }
+    while(i<arr1.length){
+        merged[k]=arr1[i];
+        i++;k++;
+    }
+     while(j<arr2.length){
+        merged[k]=arr2[j];
+        j++;k++;
+    }
+    for (int x=0;x<merged.length;x++){
+        System.out.print(merged[x]+" ");
+    }
+
+    }
+}
