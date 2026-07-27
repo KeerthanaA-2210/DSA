@@ -290,3 +290,26 @@ public class Main {
         
     }
 }
+// Pattern: Running Minimum
+// Best Time to Buy and Sell Stock
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+public class Main {
+    public static void main(String[] args) {
+    int[] arr={7, 1, 5 ,3 ,6, 4};
+    int minimumprice=arr[0];
+    int maxprofit=0;
+    int profit=0;
+    for(int i=1;i<arr.length;i++){
+        if(arr[i]<minimumprice){
+            minimumprice=arr[i];
+        }
+            profit=arr[i]-minimumprice;
+        
+        if(profit>maxprofit){
+            maxprofit=profit;
+        }
+    }
+    System.out.println(maxprofit);
+    }
+}
