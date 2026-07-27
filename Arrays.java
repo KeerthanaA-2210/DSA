@@ -240,3 +240,27 @@ public class Main {
         }
     }
 }
+// Pattern: Mathematical Sum Pattern-find missing number in array
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
+public class Main {
+    public static void main(String[] args) {
+        int arr[]={0,1,3};
+        int num=0;
+        int n=arr.length;
+        int sum=0;
+        int actualsum=n*(n+1)/2;
+
+        for(int i=0;i<n;i++){
+            sum+=arr[i];
+        }
+        if(sum==actualsum){
+            System.out.println("No missing number");
+        }
+        else{
+            num=actualsum-sum;
+        }
+        System.out.println("The missing number is "+num);
+    }
+}
