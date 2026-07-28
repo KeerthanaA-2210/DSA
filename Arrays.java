@@ -445,3 +445,30 @@ public class Main {
 
     }
 }
+// Pattern:Sliding window
+// Find the length of longest subarray of sum k
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+public class Main {
+    public static void main(String[] args) {
+    int[] arr={1,2,3,4,5,6};
+    int right=0,left=0,k=6;
+    int maxlength=0,sum=0;
+
+    for(right=0;right<arr.length;right++){
+        sum+=arr[right];
+        while(sum>k){
+            sum-=arr[left];
+            left++;
+        }
+        if(sum==k){
+            int curr=right-left+1;
+            if(curr>maxlength){
+                maxlength=curr;
+            }
+        }
+    }
+    System.out.println(maxlength);
+
+}
+}
