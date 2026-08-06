@@ -174,3 +174,39 @@ public class Main{
         }
      }
 }
+//Isomorphic Strings
+import java.util.*;
+public class small {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter String1: ");
+        String s1=sc.next();
+         System.out.println("Enter String2: ");
+        String s2=sc.next();
+
+        HashMap<Character,Character> map=new HashMap<>();
+        HashSet<Character> set=new HashSet<>();
+
+        if(s1.length()!=s2.length()){
+            System.out.println("Not Isomorphic");
+            return;
+        }
+        for(int i=0;i<s1.length();i++){
+            if(map.containsKey(s1.charAt(i))){
+                if(map.get(s1.charAt(i))!=s2.charAt(i)){
+                    System.out.println("Not Isomorphic");
+                    break;
+                }
+            }
+            else{
+                if(set.contains(s2.charAt(i))){
+                    System.out.println("Not Isomorphic");
+                    break;
+                }
+                set.add(s2.charAt(i));
+                map.put(s1.charAt(i), s2.charAt(i));
+            }
+        }
+        System.out.println("Isomorphic");
+    }  
+}
