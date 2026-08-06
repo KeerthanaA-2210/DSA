@@ -210,3 +210,33 @@ public class small {
         System.out.println("Isomorphic");
     }  
 }
+//Longest Substring Without Repeating Characters
+import java.util.*;
+public class small {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter String: ");
+        String s=sc.next();
+        HashSet<Character> set=new HashSet<>();
+        int maxlength=0;
+        int right=0,left=0;
+
+        for(right=0;right<s.length();right++){
+            if(!set.contains(s.charAt(right))){
+                set.add(s.charAt(right));
+                maxlength=Math.max(maxlength, right - left + 1);
+            }
+            else{
+                while(set.contains(s.charAt(right))){
+                    set.remove(s.charAt(left));
+                    left++;
+                }
+                set.add(s.charAt(right));
+                    maxlength=Math.max(maxlength, right-left+1);
+            }
+        }
+
+        System.out.println(set);
+        System.out.println(maxlength);
+    }  
+}
