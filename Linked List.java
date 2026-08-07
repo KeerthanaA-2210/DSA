@@ -89,29 +89,25 @@ public class linkedlist{
             }
         }
 
-        Node temp=head;
+
+        Node res=ReverseList(head);
+        Node temp=res;
         while (temp!=null) {
             System.out.print(temp.data+" ");
             temp=temp.next;
-        }System.out.println("");
-        //Reverse the LL
-    Node prev = null;
-    Node curr = head;
-    Node next = null;
-
-    while (curr != null) {
-    next = curr.next;
-    curr.next = prev;
-    prev = curr;
-    curr = next;
-}
-
-head = prev;
-temp=head;
-while (temp!=null) {
-            System.out.print(" "+temp.data+" ");
-            temp=temp.next;
         }
+
+    }
+    public static Node ReverseList(Node head){
+        Node prev=null,curr=head,next=null;
+
+        while(curr!=null){
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+        return prev;
     }
     
 }
