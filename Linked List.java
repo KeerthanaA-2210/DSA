@@ -74,8 +74,6 @@ public class linkedlist{
        
         Node head=null;
         Node tail=null;
-        boolean found=false;
-
         System.out.println("Enter values : ");
         for(int i=0;i<n;i++){
             int value=sc.nextInt();
