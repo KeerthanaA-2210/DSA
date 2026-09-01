@@ -240,3 +240,58 @@ public class small {
         System.out.println(maxlength);
     }  
 }
+//String to Integer - input: 234abc278
+//output: 234
+//in-    -1   out: -1   in: abs38  out:0
+import java.util.Scanner;
+
+public class m {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+
+        Solution sol = new Solution();
+
+        int res = sol.StringtoInteger(s);
+
+        System.out.println("The Integer is " + res);
+    }
+}
+
+class Solution {
+
+    public int StringtoInteger(String s) {
+
+        int sign = 1;
+        int result = 0;
+        int i = 0;
+
+        // 1. Skip spaces
+        while (i < s.length() && s.charAt(i) == ' ') {
+            i++;
+        }
+
+        // 2. Check sign
+        if (i < s.length() && s.charAt(i) == '-') {
+            sign = -1;
+            i++;
+        }
+        else if (i < s.length() && s.charAt(i) == '+') {
+            i++;
+        }
+
+        // 3. Build the number
+        while (i < s.length() && Character.isDigit(s.charAt(i))) {
+
+            int digit = s.charAt(i) - '0';
+
+            result = result * 10 + digit;
+
+            i++;
+        }
+
+        // 4. Apply sign
+        return sign * result;
+    }
+}
