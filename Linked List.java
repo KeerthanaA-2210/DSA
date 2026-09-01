@@ -160,4 +160,15 @@ public class linkedlist{
     
 }
 
+//Insertion at beginning of LL 
+class Solution {
+    public ListNode insertAtHead(ListNode head, int X) {
+        //YOUR CODE GOES HERE
+
+        ListNode temp=head;
+        head=new ListNode(X);
+        head.next=temp;
+        return head;
+    }
+}
 
