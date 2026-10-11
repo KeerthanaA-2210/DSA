@@ -1,0 +1,30 @@
+
+name: Hello World CI Pipeline
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build message
+        run: echo "Build job completed successfully!"
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Test message
+        run: echo "Test job completed successfully!"
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Deploy message
+        run: echo "Deploy job completed successfully!"
+
